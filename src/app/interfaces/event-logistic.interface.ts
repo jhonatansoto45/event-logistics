@@ -10,8 +10,16 @@ export interface AuthLogin {
   contrasena: string;
 }
 
-
 export interface MenuItem {
   name: string;
   route: string;
+}
+
+export interface CardItem {
+  id: number;
+  image: string;
+  name: string;
+  location: string;
+  date: string;
+  invited: number;
 }

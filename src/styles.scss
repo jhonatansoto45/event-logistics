@@ -24,6 +24,18 @@
   src: url(./assets/fonts/Poppins-Bold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Lora";
+  font-weight: 400;
+  src: url(./assets/fonts/Lora-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-weight: 600;
+  src: url(./assets/fonts/Lora-Bold.ttf) format("truetype");
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -40,10 +52,14 @@
   --primary-util-text: #b0b0b0;
   --font-size-sm: 0.8rem;
   --font-size-md: 2.7rem;
+  --font-size-xl: 4rem;
   --font-weight-title: 700;
   --font-weight-light: 400;
   /* BORDER */
   --border-radius-sm: 8px;
+  --border-color-box: #cacaca;
+  /* THEME */
+  --bg: #ffffff;
 }
 
 html,

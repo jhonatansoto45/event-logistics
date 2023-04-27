@@ -8,6 +8,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CrearEventoComponent } from './pages/crear-evento/crear-evento.component';
 import { VerEventoComponent } from './pages/ver-evento/ver-evento.component';
 import { IndexComponent } from './index/index.component';
+import { CardEventComponent } from './components/card-event/card-event.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { IndexComponent } from './index/index.component';
     CrearEventoComponent,
     VerEventoComponent,
     IndexComponent,
+    CardEventComponent,
   ],
-  imports: [CommonModule, EventRoutingModule, RouterModule],
+  imports: [CommonModule, EventRoutingModule, RouterModule, SharedModule],
 })
 export class EventModule {}

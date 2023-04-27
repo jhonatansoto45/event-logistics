@@ -1,1 +1,21 @@
-<p>home works!</p>
+<main class="home">
+  <section class="welcome">
+    <article class="welcome__article">
+      <h1 class="welcome__text">Los eventos para hoy</h1>
+      <p class="welcome__date">{{ date | date : "fullDate" }}</p>
+    </article>
+    <article class="welcome__event">
+      <app-card-event [cardItem]="cardItem"></app-card-event>
+    </article>
+  </section>
+
+  <section class="next">
+    <h1 class="next__title">Próximos Eventos</h1>
+    <article class="next__event">
+      <app-card-event
+        *ngFor="let item of nextEvent"
+        [cardItem]="item"
+      ></app-card-event>
+    </article>
+  </section>
+</main>
