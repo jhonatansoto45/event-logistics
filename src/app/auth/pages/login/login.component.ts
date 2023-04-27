@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
-import { GeneralService } from '../../services/general.service';
-import { AuthService } from '../service/auth.service';
+import { GeneralService } from '../../../services/general.service';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -60,6 +60,10 @@ export class LoginComponent {
         if (!token) return;
         this.successFullUser(token, nombre, apellido, perfil);
       });
+  }
+
+  register(): void {
+    this.router.navigate(['/auth/users/register']);
   }
 
   successFullUser(
