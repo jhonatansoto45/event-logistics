@@ -2,7 +2,7 @@ export interface AuthUser {
   nombre: string;
   apellido: string;
   perfil: string;
-  token: string;
+  token?: string;
 }
 
 export interface AuthLogin {
@@ -10,3 +10,8 @@ export interface AuthLogin {
   contrasena: string;
 }
 
+
+export interface MenuItem {
+  name: string;
+  route: string;
+}

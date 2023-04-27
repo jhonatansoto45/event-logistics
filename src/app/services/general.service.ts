@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { AuthLogin, AuthUser } from '../interfaces/event-logistic.interface';
 
 import Swal from 'sweetalert2';
+import { AES, enc } from 'crypto-js';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +17,40 @@ export class GeneralService {
 
   //* TOKEN
   getToken(): string | null {
-    return sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
+    return token
+      ? JSON.parse(AES.decrypt(token!, 'token#').toString(enc.Utf8))
+      : [];
   }
 
   setToken(token: string): void {
-    sessionStorage.setItem('token', JSON.stringify(token));
+    sessionStorage.setItem(
+      'token',
+      AES.encrypt(JSON.stringify(token).toString(), 'token#').toString()
+    );
+  }
+
+  removeToken(): void {
+    sessionStorage.removeItem('token');
+  }
+
+  //*ENCRYPTION
+  encryption(data: any, key: string): void {
+    sessionStorage.setItem(
+      key,
+      AES.encrypt(JSON.stringify(data).toString(), `${key}#`).toString()
+    );
+  }
+
+  decryption(key: string): any {
+    const value = sessionStorage.getItem(key);
+    return value
+      ? JSON.parse(AES.decrypt(value!, `${key}#`).toString(enc.Utf8))
+      : [];
+  }
+
+  clearSession():void {
+    sessionStorage.clear()
   }
 
   //* UTILIDADES

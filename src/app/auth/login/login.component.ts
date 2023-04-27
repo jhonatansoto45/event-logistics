@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { GeneralService } from '../../services/general.service';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+
+import { GeneralService } from '../../services/general.service';
 import { AuthService } from '../service/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -55,14 +56,22 @@ export class LoginComponent {
 
     this.generalService
       .getUser({ usuario: username, contrasena: password })
-      .subscribe(({ token, nombre, apellido }) => {
+      .subscribe(({ token, nombre, apellido, perfil }) => {
         if (!token) return;
-        this.successFullUser(token, nombre, apellido);
+        this.successFullUser(token, nombre, apellido, perfil);
       });
   }
 
-  successFullUser(token: string, nombre: string, apellido: string): void {
+  successFullUser(
+    token: string,
+    nombre: string,
+    apellido: string,
+    perfil: string
+  ): void {
+    const user = { nombre, apellido, perfil };
     this.generalService.setToken(token);
+    this.generalService.encryption(user, 'info');
+
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -72,6 +81,6 @@ export class LoginComponent {
       showConfirmButton: false,
       timer: 1500,
     });
-    this.router.navigate(['/index/home']);
+    this.router.navigate(['/eventos/manage/inicio']);
   }
 }

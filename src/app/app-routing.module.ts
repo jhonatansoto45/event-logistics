@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'index',
+    path: 'eventos',
     loadChildren: () =>
       import('./event-logistic/event.module').then((m) => m.EventModule),
     canActivate: [AuthGuard],
