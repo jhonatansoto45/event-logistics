@@ -43,13 +43,18 @@
         <label for="password">
           <span class="login__span">Contraseña</span>
           <div class="login__control">
-            <input
-              type="password"
-              class="login__input"
-              id="password"
-              formControlName="password"
-              placeholder="r3Zege#B7B5S"
-            />
+            <div class="login__password">
+              <input
+                [type]="typeInput"
+                class="login__input"
+                id="password"
+                formControlName="password"
+                placeholder="r3Zege#B7B5S"
+              />
+              <button type="button" (click)="changeType()" class="login__eye">
+                <img [src]="changeIcon | image" alt="icon" class="login__iconEye" />
+              </button>
+            </div>
             <span class="login__error" *ngIf="fieldInvalid('password')">
               Este campo es requerido
             </span>
