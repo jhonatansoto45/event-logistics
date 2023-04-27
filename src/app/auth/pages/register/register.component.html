@@ -1,1 +1,90 @@
-<p>register works!</p>
+<section class="register">
+  <h2 class="register__title">¡Empecemos! 😄</h2>
+  <p class="register__text">Crea tu cuenta ahora</p>
+
+  <form
+    class="register__form"
+    [formGroup]="miFormulario"
+    autocomplete="off"
+    (ngSubmit)="createAccount()"
+  >
+    <label class="register__label" for="nombre">
+      <span class="register__span">Nombre</span>
+      <input
+        class="register__input"
+        type="text"
+        id="nombre"
+        formControlName="nombre"
+        placeholder="Ervin"
+      />
+      <span class="register__error" *ngIf="fieldInvalid('nombre')">
+        Este campo es requerido
+      </span>
+    </label>
+
+    <label class="register__label" for="apellido">
+      <span class="register__span">Apellido</span>
+      <input
+        class="register__input"
+        type="text"
+        id="apellido"
+        formControlName="apellido"
+        placeholder="Howell"
+      />
+      <span class="register__error" *ngIf="fieldInvalid('apellido')">
+        Este campo es requerido
+      </span>
+    </label>
+
+    <label class="register__label" for="password">
+      <span class="register__span">Contraseña</span>
+      <div class="register__password">
+        <input
+          [type]="typeInput"
+          class="register__input"
+          id="password"
+          formControlName="password"
+          placeholder="r3Zege#B7B5S"
+        />
+        <button type="button" (click)="changeType()" class="register__eye">
+          <img
+            [src]="changeIcon | image"
+            alt="icon"
+            class="register__iconEye"
+          />
+        </button>
+      </div>
+      <span class="register__error" *ngIf="fieldInvalid('password')">
+        Este campo es requerido
+      </span>
+    </label>
+
+    <label class="register__label" for="password2">
+      <span class="register__span">Repite Contraseña</span>
+      <div class="register__password">
+        <input
+          [type]="typeInput"
+          class="register__input"
+          id="password2"
+          formControlName="password2"
+          placeholder="r3Zege#B7B5S"
+        />
+        <button type="button" (click)="changeType()" class="register__eye">
+          <img
+            [src]="changeIcon | image"
+            alt="icon"
+            class="register__iconEye"
+          />
+        </button>
+      </div>
+      <span class="register__error" *ngIf="fieldInvalid('password2')">
+        Este campo es requerido
+      </span>
+    </label>
+
+    <button type="submit" class="register__btn">Crear cuenta</button>
+  </form>
+  <button class="register__login" (click)="login()">
+    ¿Ya tienes una cuenta?
+  </button>
+</section>
