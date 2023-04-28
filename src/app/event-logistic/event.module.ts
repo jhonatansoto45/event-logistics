@@ -10,6 +10,8 @@ import { VerEventoComponent } from './pages/ver-evento/ver-evento.component';
 import { IndexComponent } from './index/index.component';
 import { CardEventComponent } from './components/card-event/card-event.component';
 import { SharedModule } from '../shared/shared.module';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { PopupUserComponent } from './components/popup-user/popup-user.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     VerEventoComponent,
     IndexComponent,
     CardEventComponent,
+    FavoritesComponent,
+    PopupUserComponent,
   ],
   imports: [CommonModule, EventRoutingModule, RouterModule, SharedModule],
 })

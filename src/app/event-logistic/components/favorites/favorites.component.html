@@ -1,0 +1,18 @@
+<section *ngIf="activeFavorite" class="favorite">
+  <article
+    class="favorite__popup animate__animated animate__fadeInRightBig"
+    #popup
+  >
+    <button title="Cerrar" class="favorite__btn" (click)="closePopup()">
+      <img
+        src="../../../../assets/icons/close.svg"
+        alt=""
+        class="favorite__icon"
+        [ngStyle]="{ 'width.px': '20' }"
+      />
+    </button>
+
+    <h1 class="favorite__title">Eventos favoritos</h1>
+
+  </article>
+</section>

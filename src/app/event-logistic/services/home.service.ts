@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { CardItem } from 'src/app/interfaces/event-logistic.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
+  openFavorites$: Subject<boolean> = new Subject<boolean>();
+
   private _listCard: CardItem[] = [
     {
       id: 1,

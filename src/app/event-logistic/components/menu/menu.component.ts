@@ -1,26 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
-import Swal from 'sweetalert2';
-
-import {
-  AuthUser,
-  MenuItem,
-} from 'src/app/interfaces/event-logistic.interface';
-import { GeneralService } from 'src/app/services/general.service';
+import { MenuItem } from 'src/app/interfaces/event-logistic.interface';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit {
-  userData: AuthUser = {
-    nombre: '',
-    apellido: '',
-    perfil: '',
-  };
-
+export class MenuComponent {
   menu: MenuItem[] = [
     {
       name: 'Inicio',
@@ -37,14 +25,11 @@ export class MenuComponent implements OnInit {
   ];
 
   visiblePopup: boolean = false;
+  visibleFavorites: boolean = false;
 
-  constructor(private router: Router, private generalService: GeneralService) {}
+  constructor(private homeService: HomeService) {}
 
-  ngOnInit(): void {
-    if (this.generalService.decryption('info')) {
-      this.userData = this.generalService.decryption('info')!;
-    }
-  }
+  ngOnInit(): void {}
 
   openPopup(): void {
     this.visiblePopup = !this.visiblePopup;
@@ -54,18 +39,7 @@ export class MenuComponent implements OnInit {
     this.visiblePopup = false;
   }
 
-  logout(): void {
-    Swal.fire({
-      title: '¿Esta seguro que desea salir?',
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      denyButtonText: `Cancelar`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.generalService.removeToken();
-        this.generalService.clearSession();
-        this.router.navigate(['/auth/login']);
-      }
-    });
+  openFavorites(): void {
+    this.homeService.openFavorites$.next(true);
   }
 }

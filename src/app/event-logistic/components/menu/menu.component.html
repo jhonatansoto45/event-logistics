@@ -20,6 +20,19 @@
   </nav>
 
   <div class="header__contain">
+    <button
+      title="Favoritos"
+      class="header__favorites"
+      (click)="openFavorites()"
+    >
+      <img
+        src="../../../../assets/icons/star.svg"
+        alt=""
+        class="header__icon"
+        [ngStyle]="{ 'width.px': '15' }"
+      />
+      <span>Favoritos</span>
+    </button>
     <button class="header__user" (click)="openPopup()">
       <img
         src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
@@ -27,24 +40,6 @@
         class="header__img header__img--width"
       />
     </button>
-    <ng-container
-      *ngIf="visiblePopup"
-      [ngTemplateOutlet]="popupUser"
-    ></ng-container>
+    <app-popup-user *ngIf="visiblePopup"></app-popup-user>
   </div>
 </header>
-
-<ng-template #popupUser>
-  <div class="animate__animated animate__backInDown popup">
-    <h1 class="popup__user">!Hola {{userData.nombre | titlecase}} {{userData.apellido | titlecase}}¡ 👋</h1>
-    <picture class="popup__picture">
-      <img
-        src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        alt=""
-        class="popup__img"
-      />
-    </picture>
-    <p class="popup__role">{{userData.perfil}}</p>
-    <button (click)="logout()" class="popup__logout">Cerrar Sesión</button>
-  </div>
-</ng-template>

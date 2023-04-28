@@ -8,8 +8,6 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  date: Date = new Date();
-
   cardItem: CardItem = {
     id: 1,
     image:
@@ -19,7 +17,7 @@ export class HomeComponent implements OnInit {
     date: new Date().toLocaleDateString(),
     invited: 150,
   };
-
+  date: Date = new Date();
   constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {}
