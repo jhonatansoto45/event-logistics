@@ -1,1 +1,55 @@
-<p>crear-evento works!</p>
+<section class="create">
+  <article class="create__article">
+    <h1 class="create__title">¡Vamos a crear tu evento! 🤩</h1>
+    <p class="create__description">
+      Escribe los datos básicos que tendrá tu evento.
+    </p>
+    <form
+      class="create__form"
+      [formGroup]="miFormulario"
+      (ngSubmit)="saveEvent()"
+    >
+      <label for="nombre" class="create__label">
+        <span class="create__span">Nombre</span>
+        <input
+          type="text"
+          class="create__input"
+          id="nombre"
+          formControlName="nombre"
+          placeholder="Reunion hotel magic"
+        />
+        <span class="create__error" *ngIf="fieldInvalid('nombre')">
+          Este campo es requerido
+        </span>
+      </label>
+      <label for="ubicacion" class="create__label">
+        <span class="create__span">Ubicación</span>
+        <input
+          type="text"
+          class="create__input"
+          id="ubicacion"
+          formControlName="ubicacion"
+          placeholder="Calle Winston 1234"
+        />
+        <span class="create__error" *ngIf="fieldInvalid('ubicacion')">
+          Este campo es requerido
+        </span>
+      </label>
+      <label for="fecha" class="create__label">
+        <span class="create__span">Fecha</span>
+        <input
+          type="date"
+          class="create__input"
+          id="fecha"
+          formControlName="fecha"
+          placeholder="Reunion hotel magic"
+        />
+        <span class="create__error" *ngIf="fieldInvalid('fecha')">
+          Este campo es requerido
+        </span>
+      </label>
+      <button type="submit" class="create__btn">Crear evento</button>
+    </form>
+  </article>
+  <div class="create__picture"></div>
+</section>

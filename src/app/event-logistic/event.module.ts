@@ -12,6 +12,7 @@ import { CardEventComponent } from './components/card-event/card-event.component
 import { SharedModule } from '../shared/shared.module';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { PopupUserComponent } from './components/popup-user/popup-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,12 @@ import { PopupUserComponent } from './components/popup-user/popup-user.component
     FavoritesComponent,
     PopupUserComponent,
   ],
-  imports: [CommonModule, EventRoutingModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    EventRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    SharedModule,
+  ],
 })
 export class EventModule {}
