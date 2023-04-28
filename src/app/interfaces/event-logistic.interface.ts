@@ -20,8 +20,8 @@ export interface CreateUserType {
 }
 
 export enum Perfiles {
-  administrador,
-  asistente,
+  administrador = 1,
+  asistente = 2,
 }
 
 export interface MenuItem {

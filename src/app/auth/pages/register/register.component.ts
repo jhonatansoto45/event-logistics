@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
     }
 
     const newUser: CreateUserType = {
-      usuario: this.miFormulario.get('usuario')?.value.trim().toLowerCase(),
+      usuario: this.miFormulario.get('usuario')?.value.trim(),
       nombre: this.miFormulario.get('nombre')?.value.trim(),
       apellido: this.miFormulario.get('apellido')?.value.trim(),
       Correo: this.miFormulario.get('apellido')?.value.trim(),
@@ -91,9 +91,8 @@ export class RegisterComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500,
       });
+      this.login();
     });
-
-    this.login();
   }
 
   login(): void {
