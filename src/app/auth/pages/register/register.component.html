@@ -8,6 +8,20 @@
     autocomplete="off"
     (ngSubmit)="createAccount()"
   >
+    <label class="register__label" for="usuario">
+      <span class="register__span">Usuario</span>
+      <input
+        class="register__input"
+        type="text"
+        id="usuario"
+        formControlName="usuario"
+        placeholder="@ErvinHowell"
+      />
+      <span class="register__error" *ngIf="fieldInvalid('usuario')">
+        Este campo es requerido
+      </span>
+    </label>
+
     <label class="register__label" for="nombre">
       <span class="register__span">Nombre</span>
       <input
@@ -36,6 +50,20 @@
       </span>
     </label>
 
+    <label class="register__label" for="email">
+      <span class="register__span">Correo</span>
+      <input
+        class="register__input"
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Howell"
+      />
+      <span class="register__error" *ngIf="fieldInvalid('email')">
+        Este campo es requerido
+      </span>
+    </label>
+
     <label class="register__label" for="password">
       <span class="register__span">Contraseña</span>
       <div class="register__password">
@@ -60,7 +88,7 @@
     </label>
 
     <label class="register__label" for="password2">
-      <span class="register__span">Repite Contraseña</span>
+      <span class="register__span">Repetir Contraseña</span>
       <div class="register__password">
         <input
           [type]="typeInput"

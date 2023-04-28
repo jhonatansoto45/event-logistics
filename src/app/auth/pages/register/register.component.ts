@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  CreateUserType,
+  Perfiles,
+} from 'src/app/interfaces/event-logistic.interface';
+import { GeneralService } from 'src/app/services/general.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -18,15 +20,19 @@ export class RegisterComponent implements OnInit {
   typeInput: string = 'password';
 
   miFormulario: FormGroup = this.fb.group({
+    usuario: ['', [Validators.required]],
     nombre: ['', [Validators.required]],
     apellido: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(4)]],
     password2: ['', [Validators.required, Validators.minLength(4)]],
   });
 
-  password2!: FormControl;
-
-  constructor(private router: Router, private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private generalService: GeneralService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -52,9 +58,42 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const nombre = this.miFormulario.get('nombre')?.value.trim();
-    const apellido = this.miFormulario.get('apellido')?.value.trim();
     const password = this.miFormulario.get('password')?.value.trim();
+    const password2 = this.miFormulario.get('password2')?.value.trim();
+
+    if (password !== password2) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Las contraseñas son diferentes, por favor verifica que sean iguales.',
+      });
+      return;
+    }
+
+    const newUser: CreateUserType = {
+      usuario: this.miFormulario.get('usuario')?.value.trim().toLowerCase(),
+      nombre: this.miFormulario.get('nombre')?.value.trim(),
+      apellido: this.miFormulario.get('apellido')?.value.trim(),
+      Correo: this.miFormulario.get('apellido')?.value.trim(),
+      contrasena: password,
+      perfil: Perfiles.asistente,
+    };
+
+    this.createUser(newUser);
+  }
+
+  createUser(params: CreateUserType): void {
+    this.generalService.createUser(params).subscribe((user: any) => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `${user.response}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+
+    this.login();
   }
 
   login(): void {

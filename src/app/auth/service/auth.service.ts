@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CreateUserType } from 'src/app/interfaces/event-logistic.interface';
 
 @Injectable({
   providedIn: 'root',

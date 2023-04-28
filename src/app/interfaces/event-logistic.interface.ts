@@ -10,6 +10,20 @@ export interface AuthLogin {
   contrasena: string;
 }
 
+export interface CreateUserType {
+  nombre: string;
+  apellido: string;
+  Correo: string;
+  contrasena: string;
+  usuario: string;
+  perfil: number;
+}
+
+export enum Perfiles {
+  administrador,
+  asistente,
+}
+
 export interface MenuItem {
   name: string;
   route: string;
