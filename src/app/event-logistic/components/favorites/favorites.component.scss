@@ -30,3 +30,53 @@
   background-color: var(--bg);
   cursor: pointer;
 }
+
+/* FAVORITOS */
+.template__contain {
+  width: 100%;
+}
+.template__contain {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 15px;
+
+  .template__img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+.template__description {
+  flex: 1 1 100%;
+}
+
+.template__name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-title);
+}
+
+.template__location,
+.template__date,
+.template__invited {
+  font-size: var(--font-size-sm);
+  color: var(--primary-util-text);
+}
+.template__delete {
+  border: none;
+  background-color: var(--bg);
+  cursor: pointer;
+}
+
+.template__delete::before {
+  content: url(../../../../assets/icons/delete.svg);
+  transition: 0.3s ease all;
+}
+
+.template__delete:hover::before {
+  content: url(../../../../assets/icons/delete-filled.svg);
+}

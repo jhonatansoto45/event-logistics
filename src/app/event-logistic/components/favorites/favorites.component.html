@@ -12,7 +12,22 @@
       />
     </button>
 
-    <h1 class="favorite__title">Eventos favoritos</h1>
-
+    <ng-container [ngTemplateOutlet]="template"></ng-container>
   </article>
 </section>
+
+<ng-template #template>
+  <div class="template">
+    <h1 class="template__title">Eventos favoritos</h1>
+    <div class="template__contain" *ngFor="let favorite of listCard">
+      <img [src]="favorite.image" [alt]="favorite.name" class="template__img" />
+      <div class="template__description">
+        <p class="template__name">{{ favorite.name }}</p>
+        <p class="template__location">{{ favorite.location }}</p>
+        <p class="template__date">{{ favorite.date }}</p>
+        <p class="template__invited">{{ favorite.invited }}</p>
+      </div>
+      <button class="template__delete"></button>
+    </div>
+  </div>
+</ng-template>
