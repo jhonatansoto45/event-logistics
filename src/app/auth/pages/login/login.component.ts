@@ -17,7 +17,7 @@ export class LoginComponent {
 
   typeInput: string = 'password';
 
-  miFormulario: FormGroup = this.fb.group({
+  loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(4)]],
   });
@@ -40,19 +40,19 @@ export class LoginComponent {
 
   fieldInvalid(field: string): boolean | null | undefined {
     return (
-      this.miFormulario.get(field)?.errors &&
-      this.miFormulario.get(field)?.touched
+      this.loginForm.get(field)?.errors &&
+      this.loginForm.get(field)?.touched
     );
   }
 
   sendLogin(): void {
-    if (this.miFormulario.invalid) {
-      this.miFormulario.markAllAsTouched();
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
       return;
     }
 
-    const username = this.miFormulario.get('username')?.value.trim();
-    const password = this.miFormulario.get('password')?.value.trim();
+    const username = this.loginForm.get('username')?.value.trim();
+    const password = this.loginForm.get('password')?.value.trim();
 
     this.generalService
       .getUser({ usuario: username, contrasena: password })

@@ -21,9 +21,9 @@ export class PopupUserComponent implements OnInit {
   constructor(private generalService: GeneralService, private router: Router) {}
 
   ngOnInit(): void {
-    if (this.generalService.decryption('info')) {
-      this.userData = this.generalService.decryption('info')!;
-    }
+    this.userData =
+      this.generalService.decryption('info') &&
+      this.generalService.decryption('info')!;
   }
 
   logout(): void {
