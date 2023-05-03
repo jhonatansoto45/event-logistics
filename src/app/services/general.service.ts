@@ -1,8 +1,19 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, map, of, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  of,
+  throwError,
+} from 'rxjs';
 import { environment } from '../../environments/environment';
-import { AuthLogin, AuthUser, CreateUserType } from '../interfaces/event-logistic.interface';
+import {
+  AuthLogin,
+  AuthUser,
+  CreateUserType,
+} from '../interfaces/event-logistic.interface';
 
 import Swal from 'sweetalert2';
 import { AES, enc } from 'crypto-js';
@@ -64,7 +75,10 @@ export class GeneralService {
   createUser(newUser: CreateUserType): Observable<CreateUserType> {
     const body = newUser;
     return this.http
-      .post<CreateUserType>(`${this.baseUrl}/api/users/new`, JSON.stringify(body))
+      .post<CreateUserType>(
+        `${this.baseUrl}/api/users/new`,
+        JSON.stringify(body)
+      )
       .pipe(catchError((err: HttpErrorResponse) => this.handleError(err)));
   }
 
@@ -76,6 +90,6 @@ export class GeneralService {
         text: `${err?.error?.Error}`,
       });
     }
-    return throwError(err);
+    return throwError(() => err);
   }
 }
