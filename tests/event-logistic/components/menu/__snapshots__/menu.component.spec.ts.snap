@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuComponent debe crear el snapshot inicial 1`] = `
+<div
+  id="root1"
+>
+  <header
+    class="header"
+  >
+    <picture
+      class="header__logo"
+    >
+      <img
+        alt="Logo"
+        class="header__img"
+        src="../../../../assets/chargebee.svg"
+      />
+    </picture>
+    <nav
+      class="header__nav"
+    >
+      <ul
+        class="header__list"
+      >
+        <li
+          class="header__item"
+          routerlinkactive="activeRoute"
+          tabindex="0"
+        >
+           Inicio 
+        </li>
+        <li
+          class="header__item"
+          routerlinkactive="activeRoute"
+          tabindex="0"
+        >
+           Crear Evento 
+        </li>
+        <li
+          class="header__item"
+          routerlinkactive="activeRoute"
+          tabindex="0"
+        >
+           Ver eventos 
+        </li>
+        
+      </ul>
+    </nav>
+    <div
+      class="header__contain"
+    >
+      <button
+        class="header__favorites"
+        title="Favoritos"
+      >
+        <img
+          alt=""
+          class="header__icon"
+          src="../../../../assets/icons/star.svg"
+          style="width: 15px;"
+        />
+        <span>
+          Favoritos
+        </span>
+      </button>
+      <button
+        class="header__user"
+      >
+        <img
+          alt=""
+          class="header__img header__img--width"
+          src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        />
+      </button>
+      
+    </div>
+  </header>
+</div>
+`;

@@ -2,11 +2,11 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import localeCo from '@angular/common/locales/es-CO';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import localeCo from '@angular/common/locales/es-CO';
 
 registerLocaleData(localeCo, 'es-CO');
 

@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import {
   CreateUserType,
   Perfiles,
-} from 'src/app/interfaces/event-logistic.interface';
-import { GeneralService } from 'src/app/services/general.service';
+} from '../../../interfaces/event-logistic.interface';
+import { GeneralService } from '../../../services/general.service';
 
 import Swal from 'sweetalert2';
 

@@ -32,7 +32,7 @@ export class MenuComponent {
   ngOnInit(): void {}
 
   openPopup(): void {
-    this.visiblePopup = !this.visiblePopup;
+    this.visiblePopup = true;
   }
 
   disabledPopup(): void {
