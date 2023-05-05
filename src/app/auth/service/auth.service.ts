@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { CreateUserType } from 'src/app/interfaces/event-logistic.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   capitalizeText(text: string): string {
-    return text[0].toUpperCase() + text.substring(1);
+    const preText = text.trim().split(' ');
+    const arrayTemp: string[] = [];
+
+    for (let i = 0; i < preText.length; i++) {
+      const element = preText[i][0].toUpperCase() + preText[i].substring(1);
+      arrayTemp.push(element);
+    }
+
+    return arrayTemp.join(' ');
   }
 }

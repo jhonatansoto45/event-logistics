@@ -40,8 +40,7 @@ export class LoginComponent {
 
   fieldInvalid(field: string): boolean | null | undefined {
     return (
-      this.loginForm.get(field)?.errors &&
-      this.loginForm.get(field)?.touched
+      this.loginForm.get(field)?.errors && this.loginForm.get(field)?.touched
     );
   }
 
@@ -80,8 +79,8 @@ export class LoginComponent {
       position: 'center',
       icon: 'success',
       title: `Inicio correcto ${this.authService.capitalizeText(
-        nombre
-      )} ${this.authService.capitalizeText(apellido)}`,
+        `${nombre} ${apellido}`
+      )} `,
       showConfirmButton: false,
       timer: 1500,
     });
