@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
-import { AuthUser } from 'src/app/interfaces/event-logistic.interface';
-import { GeneralService } from 'src/app/services/general.service';
-import { Router } from '@angular/router';
+import { AuthUser } from '../../../interfaces/event-logistic.interface';
+import { GeneralService } from '../../../services/general.service';
 
 @Component({
   selector: 'app-popup-user',
@@ -18,12 +18,18 @@ export class PopupUserComponent implements OnInit {
     perfil: '',
   };
 
+  @Output() listeningPopup: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private generalService: GeneralService, private router: Router) {}
 
   ngOnInit(): void {
     this.userData =
       this.generalService.decryption('info') &&
       this.generalService.decryption('info')!;
+  }
+
+  closePopup(): void {
+    this.listeningPopup.emit(true);
   }
 
   logout(): void {

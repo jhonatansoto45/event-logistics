@@ -35,7 +35,7 @@ export class MenuComponent {
     this.visiblePopup = true;
   }
 
-  disabledPopup(): void {
+  disabledPopup(disabled: boolean): void {
     this.visiblePopup = false;
   }
 

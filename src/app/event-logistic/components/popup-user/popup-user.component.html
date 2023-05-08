@@ -1,4 +1,4 @@
-<div class="animate__animated animate__backInDown popup">
+<div class="animate__animated animate__backInDown popup" (mouseleave)="closePopup()" >
   <h1 class="popup__user">
     !Hola {{ userData.nombre | titlecase }} {{ userData.apellido | titlecase }}¡
     👋

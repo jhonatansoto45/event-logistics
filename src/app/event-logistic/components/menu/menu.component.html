@@ -33,13 +33,13 @@
       />
       <span>Favoritos</span>
     </button>
-    <button class="header__user" (click)="openPopup()">
+    <button class="header__user" (mouseenter)="openPopup()">
       <img
         src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
         alt=""
         class="header__img header__img--width"
       />
     </button>
-    <app-popup-user *ngIf="visiblePopup"></app-popup-user>
+    <app-popup-user *ngIf="visiblePopup" (listeningPopup)="disabledPopup($event)"></app-popup-user>
   </div>
 </header>
