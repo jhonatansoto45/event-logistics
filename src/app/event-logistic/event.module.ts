@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { CheckboxModule } from 'primeng/checkbox';
+import { TableModule } from 'primeng/table';
 
 import { EventRoutingModule } from './event-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,7 +16,6 @@ import { CardEventComponent } from './components/card-event/card-event.component
 import { SharedModule } from '../shared/shared.module';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { PopupUserComponent } from './components/popup-user/popup-user.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,10 +30,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    CheckboxModule,
     EventRoutingModule,
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
+    TableModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class EventModule {}

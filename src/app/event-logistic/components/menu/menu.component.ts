@@ -36,7 +36,7 @@ export class MenuComponent {
   }
 
   disabledPopup(disabled: boolean): void {
-    this.visiblePopup = false;
+    this.visiblePopup = disabled;
   }
 
   openFavorites(): void {

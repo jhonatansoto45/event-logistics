@@ -1,0 +1,20 @@
+<section class="backdrop">
+  <button
+    class="close animate__animated"
+    [ngClass]="{
+      animate__backOutDown: popupActive,
+      animate__bounceInUp: !popupActive
+    }"
+    (click)="closePopup()"
+  >
+  </button>
+  <div
+    class="modal animate__animated"
+    [ngClass]="{
+      animate__backOutDown: popupActive,
+      animate__bounceInUp: !popupActive
+    }"
+  >
+    <ng-container [ngTemplateOutlet]="template"></ng-container>
+  </div>
+</section>
