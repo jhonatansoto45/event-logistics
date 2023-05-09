@@ -16,12 +16,20 @@ export class PopupTemplateComponent {
 
   popupActive: boolean = false;
 
+  @Output() onSave: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  savePopup(): void {
+    this.popupActive = true;
+    setTimeout(() => {
+      this.onSave.emit(true);
+    }, 600);
+  }
 
   closePopup(): void {
     this.popupActive = true;
     setTimeout(() => {
-      this.onClose.emit(true)
+      this.onClose.emit(true);
     }, 600);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { MenuItem } from 'src/app/interfaces/event-logistic.interface';
+import { MenuItem } from '../../../interfaces/event-logistic.interface';
 import { HomeService } from '../../services/home.service';
 
 @Component({

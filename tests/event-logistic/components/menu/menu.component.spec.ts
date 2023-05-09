@@ -38,9 +38,9 @@ describe('MenuComponent', () => {
     expect(component.visiblePopup).toBeTruthy();
   });
 
-  test('debe de cerrar el popup de usuario', () => {
-    component.disabledPopup();
-    expect(component.visiblePopup).toBeFalsy();
+  test('debe asignarle el valor que se envió', () => {
+    component.disabledPopup(true);
+    expect(component.visiblePopup).toBeTruthy();
   });
 
   test('debe enviar true para abrir la ventana de favoritos', () => {
