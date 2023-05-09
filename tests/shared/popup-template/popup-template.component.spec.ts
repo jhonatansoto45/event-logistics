@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopupTemplateComponent } from './popup-template.component';
+import { PopupTemplateComponent } from '../../../src/app/shared/popup-template/popup-template.component';
 
 describe('PopupTemplateComponent', () => {
   let component: PopupTemplateComponent;

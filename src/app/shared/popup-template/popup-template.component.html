@@ -1,13 +1,4 @@
 <section class="backdrop">
-  <button
-    class="close animate__animated"
-    [ngClass]="{
-      animate__backOutDown: popupActive,
-      animate__bounceInUp: !popupActive
-    }"
-    (click)="closePopup()"
-  >
-  </button>
   <div
     class="modal animate__animated"
     [ngClass]="{
@@ -15,6 +6,29 @@
       animate__bounceInUp: !popupActive
     }"
   >
-    <ng-container [ngTemplateOutlet]="template"></ng-container>
+    <div class="banner">
+      <button
+        class="save animate__animated"
+        title="Guardar"
+        [ngClass]="{
+          animate__backOutDown: popupActive,
+          animate__bounceInUp: !popupActive
+        }"
+        (click)="savePopup()"
+      ></button>
+      <button
+        class="close animate__animated"
+        title="Cerrar"
+        [ngClass]="{
+          animate__backOutDown: popupActive,
+          animate__bounceInUp: !popupActive
+        }"
+        (click)="closePopup()"
+      ></button>
+      <hr />
+    </div>
+    <div class="content">
+      <ng-container [ngTemplateOutlet]="template"></ng-container>
+    </div>
   </div>
 </section>

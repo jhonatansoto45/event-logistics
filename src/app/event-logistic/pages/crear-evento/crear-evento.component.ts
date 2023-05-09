@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PopupTemplateComponent } from '../../../shared/popup-template/popup-template.component';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-crear-evento',
@@ -7,13 +14,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./crear-evento.component.scss'],
 })
 export class CrearEventoComponent {
+  @ViewChild('invitadosTemplate') invitadosTemplate!: TemplateRef<any>;
+
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', Validators.required],
     ubicacion: ['', Validators.required],
     fecha: ['', Validators.required],
   });
-
-  openInvited: boolean = false;
 
   selectedRows: any[] = [];
 
@@ -56,10 +63,38 @@ export class CrearEventoComponent {
     },
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private viewContainerRef: ViewContainerRef,
+    private homeService: HomeService
+  ) {}
 
-  closeInvited(): void {
-    this.openInvited = false;
+  get listUsers() {
+    return this.homeService.usersList;
+  }
+
+  openComInvited(): void {
+    this.viewContainerRef.clear();
+
+    const cf = this.viewContainerRef.createComponent(PopupTemplateComponent);
+
+    cf.instance.template = this.invitadosTemplate;
+
+    const sub0 = cf.instance.onClose.asObservable().subscribe((active) => {
+      if (active) {
+        sub0.unsubscribe();
+        cf.destroy();
+      }
+    });
+
+    const sub1 = cf.instance.onSave.asObservable().subscribe((active) => {
+      if (active) {
+        console.log(this.selectedRows);
+
+        sub1.unsubscribe();
+        cf.destroy();
+      }
+    });
   }
 
   fieldInvalid(field: string): boolean | null | undefined {
@@ -74,5 +109,9 @@ export class CrearEventoComponent {
       this.miFormulario.markAllAsTouched();
       return;
     }
+  }
+
+  test(e: any) {
+    console.log(e);
   }
 }
