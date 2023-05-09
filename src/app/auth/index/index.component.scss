@@ -62,4 +62,14 @@
   padding: 80px 60px;
 }
 
+@media screen and (max-width: 900px) {
+  .bg__contain {
+    display: none;
+  }
 
+  .contain {
+    width: 100%;
+    margin: 0 0;
+    padding: 80px 5%;
+  }
+}
