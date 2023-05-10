@@ -4,12 +4,14 @@
 
 .login__welcome {
   width: 90%;
+  margin: 0;
 
   .login__text {
     --font-size-md: 1.6rem;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-title);
     color: var(--secondary-color-text);
+    transition: var(--basic-transition);
   }
 
   .login__description {
@@ -154,9 +156,35 @@
 
 .login__illustration {
   position: absolute;
-  right: 0;
+  right: -60px;
   bottom: 0;
+  width: 30%;
+  transition: var(--basic-transition);
 }
 
-@media screen and (max-width: 900px) {
+// responsive
+@media screen and (max-width: 950px) {
+  .login__welcome {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .login__form,
+  .login__register {
+    width: 100%;
+
+    .login__input,
+    .login__password {
+      width: 100%;
+    }
+  }
+
+  .login__illustration {
+    right: -200px;
+  }
+
+  .login__text {
+    --font-size-md: 2.2rem !important;
+  }
 }
