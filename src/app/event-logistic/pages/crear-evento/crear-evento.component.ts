@@ -5,8 +5,15 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import Swal from 'sweetalert2';
+
 import { PopupTemplateComponent } from '../../../shared/popup-template/popup-template.component';
 import { HomeService } from '../../services/home.service';
+import {
+  AttributeInputFilter,
+  ColumnsPrimeNg,
+} from 'src/app/interfaces/shared.interface';
 
 @Component({
   selector: 'app-crear-evento',
@@ -15,53 +22,45 @@ import { HomeService } from '../../services/home.service';
 })
 export class CrearEventoComponent {
   @ViewChild('invitadosTemplate') invitadosTemplate!: TemplateRef<any>;
+  selectedRows: any[] = [];
+  gridColumns: ColumnsPrimeNg[] = [
+    {
+      field: 'id',
+      title: 'Id',
+      sortable: true,
+      width: '25%',
+    },
+    {
+      field: 'name',
+      title: 'Nombre',
+      sortable: true,
+      width: '25%',
+    },
+    {
+      field: 'username',
+      title: 'Usuario',
+      sortable: true,
+      width: '25%',
+    },
+    {
+      field: 'email',
+      title: 'Email',
+      sortable: true,
+      width: '25%',
+    },
+  ];
+  atrrInputFilter: AttributeInputFilter[] = [
+    { field: 'id', type: 'text', placeholder: 'Buscar por id' },
+    { field: 'name', type: 'text', placeholder: 'Buscar por nombre' },
+    { field: 'username', type: 'text', placeholder: 'Buscar por usuario' },
+    { field: 'email', type: 'text', placeholder: 'Buscar por correo' },
+  ];
 
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', Validators.required],
     ubicacion: ['', Validators.required],
-    fecha: ['', Validators.required],
+    fecha: ['', [Validators.required, Validators.min(new Date().getDate())]],
   });
-
-  selectedRows: any[] = [];
-
-  list = [
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: 'Bamboo Watch',
-      description: 'Product Description',
-      image: 'bamboo-watch.jpg',
-      price: 65,
-      category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
-      rating: 5,
-    },
-    {
-      id: '1001',
-      code: 'nvklal433',
-      name: 'Black Watch',
-      description: 'Product Description',
-      image: 'black-watch.jpg',
-      price: 72,
-      category: 'Accessories',
-      quantity: 61,
-      inventoryStatus: 'OUTOFSTOCK',
-      rating: 4,
-    },
-    {
-      id: '1002',
-      code: 'zz21cz3c1',
-      name: 'Blue Band',
-      description: 'Product Description',
-      image: 'blue-band.jpg',
-      price: 79,
-      category: 'Fitness',
-      quantity: 2,
-      inventoryStatus: 'LOWSTOCK',
-      rating: 3,
-    },
-  ];
 
   constructor(
     private fb: FormBuilder,
@@ -73,7 +72,18 @@ export class CrearEventoComponent {
     return this.homeService.usersList;
   }
 
-  openComInvited(): void {
+  onChecks(dataItem: any): void {
+    this.selectedRows = dataItem;
+  }
+
+  fieldInvalid(field: string): boolean | null | undefined {
+    return (
+      this.miFormulario.get(field)?.errors &&
+      this.miFormulario.get(field)?.touched
+    );
+  }
+
+  componentDynamicGuests(): void {
     this.viewContainerRef.clear();
 
     const cf = this.viewContainerRef.createComponent(PopupTemplateComponent);
@@ -89,19 +99,17 @@ export class CrearEventoComponent {
 
     const sub1 = cf.instance.onSave.asObservable().subscribe((active) => {
       if (active) {
-        console.log(this.selectedRows);
-
         sub1.unsubscribe();
         cf.destroy();
+        if (!this.selectedRows.length) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Debe de seleccionar los invitados al evento.',
+          });
+          return;
+        }
       }
     });
-  }
-
-  fieldInvalid(field: string): boolean | null | undefined {
-    return (
-      this.miFormulario.get(field)?.errors &&
-      this.miFormulario.get(field)?.touched
-    );
   }
 
   saveEvent(): void {
@@ -109,9 +117,5 @@ export class CrearEventoComponent {
       this.miFormulario.markAllAsTouched();
       return;
     }
-  }
-
-  test(e: any) {
-    console.log(e);
   }
 }

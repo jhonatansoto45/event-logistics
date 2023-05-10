@@ -1,0 +1,53 @@
+<p-table
+  #dt1
+  [value]="data"
+  [(selection)]="selectedRows"
+  [dataKey]="key"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  [rows]="rows"
+  [paginator]="paginator"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngIf="selections" style="width: 4rem">
+        <p-tableHeaderCheckbox
+          (click)="onChangeCheck()"
+        ></p-tableHeaderCheckbox>
+      </th>
+
+      <th
+        *ngFor="let column of columns"
+        pSortableColumn="{{ column.field }}"
+        [ngStyle]="{ width: column.width }"
+      >
+        {{ column.title }}
+        <p-sortIcon *ngIf="column.sortable" [field]="column.field"></p-sortIcon>
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th *ngFor="let inputFilter of atrrInputFilter; let i = index">
+        <input
+          pInputText
+          #input1
+          [type]="inputFilter.type"
+          (input)="dt1.filter(input1.value, inputFilter.field, 'contains')"
+          [value]="input1.value"
+          [placeholder]="inputFilter.placeholder"
+          class="w-full"
+        />
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dataItem>
+    <tr>
+      <td *ngIf="selections">
+        <p-tableCheckbox
+          [value]="dataItem"
+          (click)="onChangeCheck()"
+        ></p-tableCheckbox>
+      </td>
+      <th *ngFor="let column of columns">{{ dataItem[column.field] }}</th>
+    </tr>
+  </ng-template>
+</p-table>

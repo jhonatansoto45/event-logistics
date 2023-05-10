@@ -48,7 +48,7 @@
           Este campo es requerido
         </span>
       </label>
-      <button type="button" class="create__btn" (click)="openComInvited()">
+      <button type="button" class="create__btn" (click)="componentDynamicGuests()">
         Agregar Invitados
       </button>
 
@@ -63,93 +63,16 @@
   <div class="invited">
     <h1 class="invited__title">Candidatos a invitar</h1>
     <div class="invited__table">
-      <p-table
-        #dt1
-        [value]="listUsers"
-        [(selection)]="selectedRows"
-        dataKey="id"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [rows]="10"
+      <app-grid-event
+        [data]="listUsers"
+        [columns]="gridColumns"
+        [atrrInputFilter]="atrrInputFilter"
+        [selections]="true"
         [paginator]="true"
-      >
-        <ng-template pTemplate="header">
-          <tr>
-            <th style="width: 4rem">
-              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
-            <th pSortableColumn="id" style="width: 25%">
-              Id <p-sortIcon field="id"></p-sortIcon>
-            </th>
-            <th pSortableColumn="name" style="width: 25%">
-              Nombre <p-sortIcon field="name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="username" style="width: 25%">
-              Usuario <p-sortIcon field="username"></p-sortIcon>
-            </th>
-            <th pSortableColumn="email" style="width: 25%">
-              Email <p-sortIcon field="email"></p-sortIcon>
-            </th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>
-              <input
-                pInputText
-                #input1
-                type="text"
-                (input)="dt1.filter(input1.value, 'id', 'contains')"
-                [value]="input1.value"
-                placeholder="Busca por id"
-                class="w-full"
-              />
-            </th>
-            <th>
-              <input
-                pInputText
-                #input2
-                type="text"
-                (input)="dt1.filter(input2.value, 'name', 'contains')"
-                [value]="input2.value"
-                placeholder="Busca por nombre"
-                class="w-full"
-              />
-            </th>
-            <th>
-              <input
-                pInputText
-                #input3
-                type="text"
-                (input)="dt1.filter(input3.value, 'username', 'contains')"
-                [value]="input3.value"
-                placeholder="Busca por usuario"
-                class="w-full"
-              />
-            </th>
-            <th>
-              <input
-                pInputText
-                #input4
-                type="text"
-                (input)="dt1.filter(input4.value, 'email', 'contains')"
-                [value]="input4.value"
-                placeholder="Busca por email"
-                class="w-full"
-              />
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-user>
-          <tr>
-            <td>
-              <p-tableCheckbox [value]="user"></p-tableCheckbox>
-            </td>
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
+        [rows]="10"
+        [key]="'id'"
+        (onChangeChecks)="onChecks($event)"
+      ></app-grid-event>
     </div>
   </div>
 </ng-template>
