@@ -1,12 +1,17 @@
 <div class="card">
   <picture class="card__picture">
     <button title="Favorito" class="card__like">
-      <img class="card__icon" [src]="iconLike | image" alt="like" (click)="liked = !liked" />
+      <img
+        class="card__icon"
+        [src]="iconLike | image"
+        alt="like"
+        (click)="liked = !liked"
+      />
     </button>
     <img [src]="cardItem.image" alt="Event" class="card__img" />
   </picture>
   <div class="card__contain">
-    <h2 class="card__name">{{ cardItem.name }}</h2>
+    <h2 class="card__name" [title]="cardItem.name">{{ cardItem.name }}</h2>
     <p class="card__text">{{ cardItem.location }}</p>
     <p class="card__text">{{ cardItem.date }}</p>
     <p class="card__text">{{ cardItem.invited }} invitados</p>

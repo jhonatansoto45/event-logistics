@@ -1,1 +1,23 @@
-<p>ver-evento works!</p>
+<div class="container">
+  <section class="view">
+    <h1 class="view__title">Busca todos los eventos programados</h1>
+    <input
+      #input
+      type="text"
+      class="view__input input"
+      [placeholder]="placeholder"
+      (keyup)="filterEvent(input.value)"
+    />
+
+    <div class="view__card" *ngIf="events.length > 0; else notResult">
+      <app-card-event
+        *ngFor="let event of events"
+        [cardItem]="event"
+      ></app-card-event>
+    </div>
+  </section>
+</div>
+
+<ng-template #notResult>
+  <h1 class="notFound">SIN REUSLTADOS BRUTO</h1>
+</ng-template>

@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.view__title {
+  text-align: center;
+  font-family: "Lora Bold", sans-serif;
+  font-size: var(--font-size-xl);
+}
+
+.view__input {
+  display: block;
+  width: 500px;
+  margin: 50px auto;
+}
+
+.view__card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.notFound {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lora Bold", sans-serif;
+  font-size: var(--font-size-md);
+}
