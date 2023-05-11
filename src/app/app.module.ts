@@ -6,13 +6,14 @@ import localeCo from '@angular/common/locales/es-CO';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PopupModule } from './shared/popup/popup.module';
 
 
 registerLocaleData(localeCo, 'es-CO');
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,PopupModule],
   providers: [{ provide: LOCALE_ID, useValue: 'es-CO' }],
   bootstrap: [AppComponent],
 })

@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { TableModule } from 'primeng/table';
-import { CheckboxModule } from 'primeng/checkbox';
-
 import { EventRoutingModule } from './event-routing.module';
+import { PrimengModule } from '../shared/primeng/primeng.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -25,12 +23,11 @@ import { ComponentsModule } from './components/components.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    CheckboxModule,
     EventRoutingModule,
+    PrimengModule,
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
-    TableModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

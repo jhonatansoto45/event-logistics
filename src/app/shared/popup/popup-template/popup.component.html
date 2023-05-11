@@ -1,0 +1,27 @@
+<div class="backdrop">
+  <div class="modal animate__animated animate__bounceInUp" #modal>
+    <div class="modal__header">
+      <h3 class="modal__title">
+        {{ options.title ? options.title : "Vista detallada" }}
+      </h3>
+      <div class="modal__buttons">
+        <ng-container *ngIf="buttons.length > 0">
+          <button
+            *ngFor="let btn of buttons"
+            class="modal__btn"
+            [title]="btn?.tooltip"
+            (click)="btn?.click()"
+          >
+            <img [src]="btn.icon! | image" alt="button" />
+          </button>
+        </ng-container>
+        <button class="modal__btn" title="Cerrar" (click)="closePopup()">
+          <img src="../../../../assets/icons/close.svg" alt="button" />
+        </button>
+      </div>
+    </div>
+    <div class="modal__container">
+      <ng-container [ngTemplateOutlet]="template"></ng-container>
+    </div>
+  </div>
+</div>
