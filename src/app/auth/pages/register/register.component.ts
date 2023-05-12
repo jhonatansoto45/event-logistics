@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   visiblePassword: boolean = false;
 
   typeInput: string = 'password';
@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
     private generalService: GeneralService
   ) {}
 
-  ngOnInit(): void {}
 
   get changeIcon() {
     return this.visiblePassword ? 'eye-off' : 'eye';

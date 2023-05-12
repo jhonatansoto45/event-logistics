@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import {
   AttributeInputFilter,
@@ -10,7 +10,7 @@ import {
   templateUrl: './grid-event.component.html',
   styleUrls: ['./grid-event.component.scss'],
 })
-export class GridEventComponent implements OnInit {
+export class GridEventComponent{
   @Input() key: string = 'id';
   @Input() columns: ColumnsPrimeNg[] = [];
   @Input() data: any[] = [];
@@ -21,15 +21,12 @@ export class GridEventComponent implements OnInit {
   @Input() atrrInputFilter: AttributeInputFilter[] = [];
   @Input() selections: boolean = false;
 
-  @Output() onChangeChecks: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changeChecks: EventEmitter<any> = new EventEmitter<any>();
 
   selectedRows: any[] = [];
 
-  ngOnInit(): void {
-    // this.selectedRows = [];
-  }
 
   onChangeCheck(): void {
-    this.onChangeChecks.emit(this.selectedRows);
+    this.changeChecks.emit(this.selectedRows);
   }
 }

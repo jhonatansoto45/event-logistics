@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, Input, ViewContainerRef } from '@angular/core';
 import { CardItem } from 'src/app/interfaces/event-logistic.interface';
 import { SliderComponent } from '../slider/slider.component';
 
@@ -7,14 +7,12 @@ import { SliderComponent } from '../slider/slider.component';
   templateUrl: './card-event.component.html',
   styleUrls: ['./card-event.component.scss'],
 })
-export class CardEventComponent implements OnInit {
+export class CardEventComponent {
   @Input() cardItem!: CardItem;
 
   liked: boolean = false;
 
   constructor(private vcf: ViewContainerRef) {}
-
-  ngOnInit(): void {}
 
   get iconLike() {
     return this.liked ? 'heart-filled' : 'heart';

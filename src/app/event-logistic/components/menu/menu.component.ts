@@ -29,7 +29,6 @@ export class MenuComponent {
 
   constructor(private homeService: HomeService) {}
 
-  ngOnInit(): void {}
 
   openPopup(): void {
     this.visiblePopup = true;

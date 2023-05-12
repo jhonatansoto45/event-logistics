@@ -26,7 +26,7 @@ export class PopupComponent implements OnInit, AfterViewInit {
   options!: OptionsCustom;
   template!: TemplateRef<any>;
 
-  @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() closeAll: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private popupService: PopupService) {}
 
@@ -41,19 +41,12 @@ export class PopupComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    console.log('destroy');
-
-  }
-
   get buttons(): ButtonsPopup[] {
     return this.options.buttons || [];
   }
 
   /* CERRAR POPUP */
   closePopup(): void {
-    this.onClose.emit(true);
+    this.closeAll.emit(true);
   }
 }

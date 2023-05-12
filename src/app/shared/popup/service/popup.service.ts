@@ -24,7 +24,7 @@ export class PopupService {
     this.component = vfc.createComponent(PopupComponent);
     this.component.instance.options = options;
 
-    const sub0 = this.component.instance.onClose
+    const sub0 = this.component.instance.closeAll
       .asObservable()
       .subscribe((close) => {
         if (close) {

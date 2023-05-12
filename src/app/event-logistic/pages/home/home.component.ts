@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardItem } from 'src/app/interfaces/event-logistic.interface';
 import { HomeService } from '../../services/home.service';
 
@@ -7,7 +7,7 @@ import { HomeService } from '../../services/home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
   cardItem: CardItem = {
     id: 1,
     image:
@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
     invited: 150,
   };
   date: Date = new Date();
+
   constructor(private homeService: HomeService) {}
 
-  ngOnInit(): void {}
 
   get nextEvent() {
     return this.homeService.cardEvent;
