@@ -43,6 +43,35 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+
+  /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-scrollbar:vertical {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-button:increment,
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
 }
 
 :root {
@@ -51,7 +80,7 @@
   /* TEXT */
   --primary-color-text: #ffffff;
   --secondary-color-text: #000000;
-  --primary-util-text: #b0b0b0;
+  --primary-util-text: rgb(113, 113, 113);
   --font-size-sm: 0.8rem;
   --font-size-md: 2.7rem;
   --font-size-xl: 4rem;

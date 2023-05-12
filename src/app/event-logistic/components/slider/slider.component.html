@@ -1,0 +1,152 @@
+<div class="backdrop">
+  <div class="slider animate__animated animate__fadeInRight">
+    <ng-container [ngTemplateOutlet]="images"></ng-container>
+    <ng-container [ngTemplateOutlet]="event"></ng-container>
+  </div>
+</div>
+
+<!-- IMAGES -->
+<ng-template #images>
+  <div class="pictures">
+    <picture class="pictures__main">
+      <img
+        src="https://images.unsplash.com/photo-1566731372839-859e7cead0ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+        alt=""
+        class="pictures__img"
+      />
+    </picture>
+    <div class="pictures__child">
+      <picture class="pictures__children">
+        <img
+          src="https://images.unsplash.com/photo-1628436174535-19751abe2799?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80"
+          alt=""
+          class="pictures__img"
+        />
+      </picture>
+      <picture class="pictures__children">
+        <img
+          src="
+
+          https://images.unsplash.com/photo-1612893201883-c3f1fb4265d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+          alt=""
+          class="pictures__img"
+        />
+      </picture>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #event>
+  <div class="container">
+    <div class="event">
+      <h1 class="event__title">{{ paramEvent.name | titlecase }}</h1>
+      <p class="event__legend">{{ paramEvent.location }}</p>
+
+      <p-divider></p-divider>
+      <section class="characters"></section>
+      <p-divider></p-divider>
+      <section class="about">
+        <p class="about__title">About this space</p>
+        <p class="about__description">
+          Enjoy a quiet getaway in this charming cottage renovated, designed,
+          and owned by Chip and Joanna Gaines. Originally the carriage house for
+          Hillcrest Estate, this home includes one bedroom, one bath, an office
+          nook and a private back patio. This makes it the perfect getaway for a
+          party of two, or if you're stopping through town and need a restful
+          place to retreat.
+        </p>
+
+        <p class="about__title">The space</p>
+        <p class="about__description">
+          An open living, dining, and kitchen area provide ample room in this
+          cozy cottage. French double doors lead you out to the back patio to
+          enjoy your own private outdoor space. A dedicated, covered parking
+          spot for your use. The parking lot is shared with Hillcrest Estate
+          guests.
+        </p>
+      </section>
+      <section class="about">
+        <p class="about__title">About this space</p>
+        <p class="about__description">
+          Enjoy a quiet getaway in this charming cottage renovated, designed,
+          and owned by Chip and Joanna Gaines. Originally the carriage house for
+          Hillcrest Estate, this home includes one bedroom, one bath, an office
+          nook and a private back patio. This makes it the perfect getaway for a
+          party of two, or if you're stopping through town and need a restful
+          place to retreat.
+        </p>
+
+        <p class="about__title">The space</p>
+        <p class="about__description">
+          An open living, dining, and kitchen area provide ample room in this
+          cozy cottage. French double doors lead you out to the back patio to
+          enjoy your own private outdoor space. A dedicated, covered parking
+          spot for your use. The parking lot is shared with Hillcrest Estate
+          guests.
+        </p>
+      </section>
+      <section class="about">
+        <p class="about__title">About this space</p>
+        <p class="about__description">
+          Enjoy a quiet getaway in this charming cottage renovated, designed,
+          and owned by Chip and Joanna Gaines. Originally the carriage house for
+          Hillcrest Estate, this home includes one bedroom, one bath, an office
+          nook and a private back patio. This makes it the perfect getaway for a
+          party of two, or if you're stopping through town and need a restful
+          place to retreat.
+        </p>
+
+        <p class="about__title">The space</p>
+        <p class="about__description">
+          An open living, dining, and kitchen area provide ample room in this
+          cozy cottage. French double doors lead you out to the back patio to
+          enjoy your own private outdoor space. A dedicated, covered parking
+          spot for your use. The parking lot is shared with Hillcrest Estate
+          guests.
+        </p>
+      </section>
+      <section class="about">
+        <p class="about__title">About this space</p>
+        <p class="about__description">
+          Enjoy a quiet getaway in this charming cottage renovated, designed,
+          and owned by Chip and Joanna Gaines. Originally the carriage house for
+          Hillcrest Estate, this home includes one bedroom, one bath, an office
+          nook and a private back patio. This makes it the perfect getaway for a
+          party of two, or if you're stopping through town and need a restful
+          place to retreat.
+        </p>
+
+        <p class="about__title">The space</p>
+        <p class="about__description">
+          An open living, dining, and kitchen area provide ample room in this
+          cozy cottage. French double doors lead you out to the back patio to
+          enjoy your own private outdoor space. A dedicated, covered parking
+          spot for your use. The parking lot is shared with Hillcrest Estate
+          guests.
+        </p>
+      </section>
+      <section class="about">
+        <p class="about__title">About this space</p>
+        <p class="about__description">
+          Enjoy a quiet getaway in this charming cottage renovated, designed,
+          and owned by Chip and Joanna Gaines. Originally the carriage house for
+          Hillcrest Estate, this home includes one bedroom, one bath, an office
+          nook and a private back patio. This makes it the perfect getaway for a
+          party of two, or if you're stopping through town and need a restful
+          place to retreat.
+        </p>
+
+        <p class="about__title">The space</p>
+        <p class="about__description">
+          An open living, dining, and kitchen area provide ample room in this
+          cozy cottage. French double doors lead you out to the back patio to
+          enjoy your own private outdoor space. A dedicated, covered parking
+          spot for your use. The parking lot is shared with Hillcrest Estate
+          guests.
+        </p>
+      </section>
+    </div>
+
+    <aside class="info"></aside>
+  </div>
+</ng-template>

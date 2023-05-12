@@ -15,6 +15,6 @@
     <p class="card__text">{{ cardItem.location }}</p>
     <p class="card__text">{{ cardItem.date }}</p>
     <p class="card__text">{{ cardItem.invited }} invitados</p>
-    <button class="card__btn">Ver</button>
+    <button class="card__btn" (click)="detailEvent(cardItem)" >Ver</button>
   </div>
 </div>

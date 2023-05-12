@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { CardItem } from 'src/app/interfaces/event-logistic.interface';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-card-event',
@@ -9,13 +10,20 @@ import { CardItem } from 'src/app/interfaces/event-logistic.interface';
 export class CardEventComponent implements OnInit {
   @Input() cardItem!: CardItem;
 
-  liked: boolean = false
+  liked: boolean = false;
 
-  constructor() {}
-
-  get iconLike(){
-    return this.liked ? 'heart-filled': 'heart'
-  }
+  constructor(private vcf: ViewContainerRef) {}
 
   ngOnInit(): void {}
+
+  get iconLike() {
+    return this.liked ? 'heart-filled' : 'heart';
+  }
+
+  detailEvent(cardItem: CardItem): void {
+    if (this.vcf) this.vcf.clear();
+
+    const component = this.vcf.createComponent(SliderComponent);
+    component.instance.paramEvent = cardItem;
+  }
 }
