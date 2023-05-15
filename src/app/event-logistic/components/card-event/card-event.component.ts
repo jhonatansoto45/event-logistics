@@ -23,5 +23,12 @@ export class CardEventComponent {
 
     const component = this.vcf.createComponent(SliderComponent);
     component.instance.paramEvent = cardItem;
+
+    const sub0 = component.instance.closeSlider
+      .asObservable()
+      .subscribe((_) => {
+        sub0.unsubscribe();
+        component.destroy();
+      });
   }
 }

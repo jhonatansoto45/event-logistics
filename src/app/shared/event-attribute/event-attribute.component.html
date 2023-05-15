@@ -1,0 +1,13 @@
+<div class="attribute">
+  <div class="card" *ngFor="let attribute of attributes">
+    <picture class="card__picture">
+      <img
+        [src]="attribute.image | image"
+        alt="Property Event"
+        class="card__img"
+      />
+    </picture>
+    <p class="card__title">{{ attribute.title }}</p>
+    <p class="card__description">{{ attribute.description }}</p>
+  </div>
+</div>

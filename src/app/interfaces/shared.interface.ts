@@ -10,3 +10,9 @@ export interface AttributeInputFilter {
   field: string;
   type: 'text' | 'number';
 }
+
+export interface ItemAttributeEvent {
+  image: string;
+  title: string;
+  description: string;
+}

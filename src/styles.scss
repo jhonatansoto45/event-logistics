@@ -82,12 +82,14 @@
   --secondary-color-text: #000000;
   --primary-util-text: rgb(113, 113, 113);
   --font-size-sm: 0.8rem;
+  --font-size-ms: 1.1rem;
   --font-size-md: 2.7rem;
   --font-size-xl: 4rem;
   --font-weight-title: 700;
   --font-weight-light: 400;
   /* BORDER */
   --border-radius-sm: 8px;
+  --border-radius-xl: 20px;
   --border-color-box: #cacaca;
   --border-input: #d8d8d8;
   /* THEME */
@@ -124,4 +126,22 @@ input[type="checkbox"] {
 
 .input:focus {
   outline: 1px solid var(--primary-color);
+}
+
+.button__primary {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--primary-color-text);
+  font-weight: var(--font-weight-light);
+  transition: 0.3s ease-in;
+}
+
+.button__primary:hover {
+  color: #667eea;
+  background: transparent;
+  border: 1px solid #667eea;
 }

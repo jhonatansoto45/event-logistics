@@ -5,10 +5,11 @@ import { PrimengModule } from './primeng/primeng.module';
 
 import { ImagePipe } from './pipe/image.pipe';
 import { GridEventComponent } from './grid-event/grid-event.component';
+import { EventAttributeComponent } from './event-attribute/event-attribute.component';
 
 @NgModule({
-  declarations: [ImagePipe, GridEventComponent],
+  declarations: [ImagePipe, GridEventComponent, EventAttributeComponent],
   imports: [CommonModule, PrimengModule],
-  exports: [ImagePipe, GridEventComponent],
+  exports: [ImagePipe, GridEventComponent, EventAttributeComponent],
 })
 export class SharedModule {}

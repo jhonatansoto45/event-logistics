@@ -1,0 +1,84 @@
+.info {
+  width: 100%;
+  height: 460px;
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius-xl);
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lora ligth", sans-serif;
+
+  .header__price {
+    font-size: var(--font-size-ms);
+    font-weight: var(--font-weight-title);
+  }
+
+  .header__start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--font-size-sm);
+  }
+
+  .header__start::before {
+    content: url(../../../../assets/icons/star-filled.svg);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.host {
+  margin-top: 10px;
+
+  .host__title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+  }
+}
+
+.host__card {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.host__picture {
+  display: inline-block;
+  width: 76px;
+  height: 76px;
+  // flex: 1 1 100%;
+  min-width: 80px;
+  margin-right: 15px;
+
+  .host__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.host__name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-title);
+}
+
+.host__date {
+  color: var(--primary-util-text);
+  font-size: var(--font-size-sm);
+}
+
+.host__description {
+  font-size: var(--font-size-sm);
+}
+
+.host__btn {
+  width: 100%;
+  margin-top: 10px;
+}

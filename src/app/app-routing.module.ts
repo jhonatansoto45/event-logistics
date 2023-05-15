@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'eventos',
     loadChildren: () =>
       import('./event-logistic/event.module').then((m) => m.EventModule),
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: '**',
